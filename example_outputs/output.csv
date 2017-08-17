@@ -1,0 +1,10 @@
+in:radius,in:height,out:lateral_area,out:volume,img:coneShape
+1.0,1.0,0.44288293816,1.0471975512,./../example_inputs/pyCone/results/case_0/out_coneShape.png
+2.0,1.0,4.0496294621,4.18879020479,./../example_inputs/pyCone/results/case_1/out_coneShape.png
+3,1.0,9.8037647974,9.42477796077,./../example_inputs/pyCone/results/case_2/out_coneShape.png
+1.0,2.0,0.02481473104,2.09439510239,./../example_inputs/pyCone/results/case_3/out_coneShape.png
+2.0,2.0,7.7715317526,8.37758040957,./../example_inputs/pyCone/results/case_4/out_coneShape.png
+3,2.0,3.9815201974,18.8495559215,./../example_inputs/pyCone/results/case_5/out_coneShape.png
+1.0,3,0.9345882658,3.14159265359,./../example_inputs/pyCone/results/case_6/out_coneShape.png
+2.0,3,2.6543467983,12.5663706144,./../example_inputs/pyCone/results/case_7/out_coneShape.png
+3,3,9.9859464434,28.2743338823,./../example_inputs/pyCone/results/case_8/out_coneShape.png

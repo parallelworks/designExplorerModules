@@ -1,0 +1,3 @@
+
+lateral_area;../example_inputs/pyCone/results/case_@@i@@/volAndLat.txt;;" ";0
+volume;../example_inputs/pyCone/results/case_@@i@@/volAndLat.txt;;" ";1
