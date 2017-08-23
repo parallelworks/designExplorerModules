@@ -3,6 +3,8 @@
         "image": "iso", 
         "bodyopacity": "1", 
         "type": "Basic",
-		"extractStats": "false"
+		"extractStats": "false",
+		"animation":"true",
+		"animationName":"coneShape.gif"
        }
 }
