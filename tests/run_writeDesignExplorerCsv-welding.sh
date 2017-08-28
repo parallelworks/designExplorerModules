@@ -7,11 +7,8 @@ caseslistFile=../example_inputs/welding/outputs/cases.list
 metrics_json=../example_inputs/welding/inputs/beadOnPlateKPI_short.json  
 pngOutDirRoot=../example_inputs/welding/outputs/png/ 						
 caseDirRoot=../example_inputs/welding/outputs/case						
-outputsList4DE=../example_inputs/welding/DEoutputParams.txt                
 
 colorby="sliceNT_ave"
-
-echo $@
 
 if [[ "$rpath" == *"/efs/job_working_directory"* ]];then
 	basedir="$(echo /download$rpath | sed "s|/efs/job_working_directory||g" )"
@@ -22,11 +19,20 @@ else
 fi 
 
 # Works with both python2 and python3 
+# echo python      ../mexdex/writeDesignExplorerCsv.py \
+# 	--casesList_paramValueDelimiter "=" \
+# 	--imagesDirectory $pngOutDirRoot{:d} \
+# 	--MECsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
+# 	--excludeParams Width1,Width2,EllipseW,EllipseH,Temp0,weld_x0,weld_y0,weld_z0,weld_vx,weld_vy,weld_vz,weld_a,weld_b,weld_c,weld_Q,sim_totalTime,sim_dt,highResWidth,meshScale,highResMeshScale \
+# 	$caseslistFile $metrics_json $basedir $outcsv
+
+basedir="."
+
 python      ../mexdex/writeDesignExplorerCsv.py \
 	--casesList_paramValueDelimiter "=" \
 	--imagesDirectory $pngOutDirRoot{:d} \
-	--includeOutputParamsFile $outputsList4DE \
 	--MECsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
+	--excludeParams Width1,Width2,EllipseW,EllipseH,Temp0,weld_x0,weld_y0,weld_z0,weld_vx,weld_vy,weld_vz,weld_a,weld_b,weld_c,weld_Q,sim_totalTime,sim_dt,highResWidth,meshScale,highResMeshScale \
 	$caseslistFile $metrics_json $basedir $outcsv
 
 

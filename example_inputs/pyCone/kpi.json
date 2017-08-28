@@ -1,10 +1,24 @@
-{"coneShape": 
-       {
-        "image": "iso", 
-        "bodyopacity": "1", 
-        "type": "Basic",
-		"extractStats": "false",
-		"animation":"true",
-		"animationName":"coneShape.gif"
-       }
+{
+  "lateral_area": {
+    "IsParaviewMetric": "no",
+    "resultFile": "../example_inputs/pyCone/results/case_{:d}/volAndLat.txt",
+    "delimiter": " ",
+    "DEoutputFlag": "",
+    "locationInFile": "1"
+  },
+  "volume": {
+    "IsParaviewMetric": "no",
+    "resultFile": "../example_inputs/pyCone/results/case_{:d}/volAndLat.txt",
+    "delimiter": " ",
+    "DEoutputFlag": "",
+    "locationInFile": "2"
+  },
+  "coneShape": {
+    "image": "iso",
+    "bodyopacity": "1",
+    "type": "Basic",
+    "extractStats": "false",
+    "animation": "true",
+    "animationName": "coneShape.gif"
+  }
 }
