@@ -21,10 +21,10 @@ and outputting data in the specific format required by DEX.
 	 1. ParaView output (PVO): These parameters are 
 		extracted using the Metrics Extraction (*MEX*) tool via Paraview. The syntax is explained in detail in
 		https://github.com/parallelworks/MetricExtraction/blob/master/README.md#metric-extraction.
-		the additional parameters required for DEX are listed below. the =isparaviewmetric=
+		the additional parameters required for DEX are listed below. The =isparaviewmetric=
 		field is set to =true= (default) for these parameters.
 	 2. Generic output (GO): These metrics are provided in files other the those generated 
-		by the me tool.  The =isparaviewmetric= field is set to =false= for these parameters.
+		by the ME tool.  The =isparaviewmetric= field is set to =false= for these parameters.
    - *resultFile* :: Only required for GO parameters. This field specifies the template for the 
 		address of the data file where the data needs to be extracted. It is assumed that 
 		the data for each case is written in a separate file, and 
@@ -39,14 +39,15 @@ and outputting data in the specific format required by DEX.
 	 + "image" : it specifies that the GO is an image.
 	 + "none" : the output will be ignored
 	 + "ave", "min", "max", "sd" or "all":
-	   * For PVOs (i.e., if =IsParaviewMetric= is set to =True= or if not provided)
+	   - For PVOs (i.e., if =IsParaviewMetric= is set to =True= or if not provided)
 		 specifies the statistics to be read from the MEX csv files. Multuiple statistics can be specified
 		 separated with ",". If set to "all", all statistics will be extract included in DEX csv file. The 
-		 default value for PVOs is =True=
-	   * For GOs, =DEXoutputFlag= specifies the flag for reading/extracting output parameters from =resultFile=.
-		 The parameters are extracted from the first line in =resultFile= which begin with this 
+		 default value for PVOs is =all=
+	   - For GOs, =DEXoutputFlag= specifies the flag for reading/extracting output parameters from =resultFile=.
+		 The parameters are extracted from the first line in =resultFile= beginning with this 
 		 flag. For GOs, the default is an empty string which results in extracting the data from the 
-		 first line in =resultFile=. *Setting =DEXoutputFlag= to =image= may result in errors*.
+		 first line in =resultFile=. 
+		 *Setting =DEXoutputFlag= to =image= may result in errors for extracting values from data files*.
    - *locationInFile* : Only required for GO parameters. This field specifies the
 		location of the output data relative to =DEXoutputFlag=. The count starts from 1.
 		The default is 1 which results in extracting the first value in the =resultFile=

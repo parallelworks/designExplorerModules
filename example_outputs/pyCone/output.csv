@@ -1,4 +1,4 @@
-in:radius,in:height,out:lateral_area,out:volume,img:coneShape,img:coneShape
+in:radius,in:height,out:lateral_area,out:volume,img:coneShape,img:coneShape_animation
 1.0,1.0,0.44288293816,1.0471975512,./../example_inputs/pyCone/results/case_0/out_coneShape.png,./../example_inputs/pyCone/results/case_0/coneShape.gif
 2.0,1.0,4.0496294621,4.18879020479,./../example_inputs/pyCone/results/case_1/out_coneShape.png,./../example_inputs/pyCone/results/case_1/coneShape.gif
 3,1.0,9.8037647974,9.42477796077,./../example_inputs/pyCone/results/case_2/out_coneShape.png,./../example_inputs/pyCone/results/case_2/coneShape.gif
