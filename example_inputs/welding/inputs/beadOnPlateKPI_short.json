@@ -3,19 +3,26 @@
     "IsParaviewMetric": "no",
     "resultFile": "../example_inputs/welding/outputs/case{:d}/genericParamTest.txt",
     "delimiter": "",
-    "DEoutputFlag": "",
+    "DEXoutputFlag": "",
     "locationInFile": "1"
   },
   "nonPVTest2": {
     "IsParaviewMetric": "no",
     "resultFile": "../example_inputs/welding/outputs/case{:d}/genericParamTest.txt",
     "delimiter": ",",
-    "DEoutputFlag": "number",
+    "DEXoutputFlag": "number",
+    "locationInFile": "1"
+  },
+  "nonPVTest3": {
+    "IsParaviewMetric": "no",
+    "resultFile": "../example_inputs/welding/outputs/case{:d}/genericParamTest.txt",
+    "delimiter": " ",
+    "DEXoutputFlag": "ave",
     "locationInFile": "1"
   },
   "nonPVImgTest2": {
     "IsParaviewMetric": "no",
-    "DEoutputFlag": "image",
+    "DEXoutputFlag": "image",
     "imageName": "../example_inputs/welding/outputs/png/{:d}/test.png"
   },
   "sliceNT": {
@@ -31,7 +38,7 @@
     "position": "center center 0.0",
     "type": "Slice",
     "plane": "Z",
-    "DEoutputFlag": "ave"
+    "DEXoutputFlag": "ave"
   },
   "clipT": {
     "opacity": "0.9",
@@ -48,7 +55,7 @@
     "plane": "X",
     "invert": "true",
     "animation": "true",
-    "DEoutputFlag": "ave"
+    "DEXoutputFlag": "ave"
   },
   "lineT_beadAxis": {
     "field": "NT",
@@ -56,20 +63,19 @@
     "type": "Line",
     "resolution": "20",
     "position": "0.0 -6.0 0.0 0.0 6.0 0.0",
-    "DEoutputFlag": "min,ave"
+    "DEXoutputFlag": "min,ave"
   },
   "volHFLX": {
     "field": "HFL",
     "fieldComponent": "X",
     "type": "Volume",
-    "position": "-2 3 -3 -.5 -.1 4",
-    "DEoutputFlag": "all"
+    "position": "-2 3 -3 -.5 -.1 4"
   },
   "probeUMag": {
     "field": "U",
     "fieldComponent": "Magnitude",
     "type": "Probe",
     "position": "0.0 -5.0 0.0 ",
-    "DEoutputFlag": "none"
+    "DEXoutputFlag": "none"
   }
 }

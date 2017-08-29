@@ -1,0 +1,72 @@
+# To convert to md use this command (org export doesn't work with nested lists:)
+# pandoc --from org --to markdown_github  README_json0.org  -s -o README_json0.md
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+
+* Design Explorer Modules
+Design Explorer (*DEX*)  is an open source tool 
+for visualizing results from multi-dimensional parametric studies (http://tt-acm.github.io/DesignExplorer/).
+Displaying data with DEX requires inputting data in a specific format as a csv
+file. This Python library provides some modules for extracting data from each simulation case
+and outputting data in the specific format required by DEX.
+
+
+** Json file Syntax
+   A json file is used for specifying the outputs (parameters/images/animations)
+   in DEX. 
+
+   The below parameters can be specified for each of the desired metrics:
+   - *IsParaviewMetric*: This parameter specifies if the output is extracted 
+		using MEX. The default value is "True". The outputs fall into two major categories:
+	 1. ParaView output (PVO): These parameters are 
+		extracted using the Metrics Extraction (*MEX*) tool via Paraview. The syntax is explained in detail in
+		https://github.com/parallelworks/MetricExtraction/blob/master/README.md#metric-extraction.
+		the additional parameters required for DEX are listed below. the =isparaviewmetric=
+		field is set to =true= (default) for these parameters.
+	 2. Generic output (GO): These metrics are provided in files other the those generated 
+		by the me tool.  The =isparaviewmetric= field is set to =false= for these parameters.
+   - *resultFile* :: Only required for GO parameters. This field specifies the template for the 
+		address of the data file where the data needs to be extracted. It is assumed that 
+		the data for each case is written in a separate file, and 
+		the case number can be specified by using python formatting (using new style, 
+		see [[https://pyformat.info/#number][see https://pyformat.info/#number]]). For examples see 
+		=example_inputs/welding/inputs/beadOnPlateKPI_short.json=. Also, see =imageName= below.
+		for more details.
+   - *delimiter* : Only required for GO parameters. This field specifies the 
+		delimiter for reading/extracting output parameters from =resultFile=. 
+		The default is an empty string which sets the delimiter to =None=.
+   - *DEXoutputFlag* : Only required for GO parameters. It can be set to:
+	 + "image" : it specifies that the GO is an image.
+	 + "none" : the output will be ignored
+	 + "ave", "min", "max", "sd" or "all":
+	   * For PVOs (i.e., if =IsParaviewMetric= is set to =True= or if not provided)
+		 specifies the statistics to be read from the MEX csv files. Multuiple statistics can be specified
+		 separated with ",". If set to "all", all statistics will be extract included in DEX csv file. The 
+		 default value for PVOs is =True=
+	   * For GOs, =DEXoutputFlag= specifies the flag for reading/extracting output parameters from =resultFile=.
+		 The parameters are extracted from the first line in =resultFile= which begin with this 
+		 flag. For GOs, the default is an empty string which results in extracting the data from the 
+		 first line in =resultFile=. *Setting =DEXoutputFlag= to =image= may result in errors*.
+   - *locationInFile* : Only required for GO parameters. This field specifies the
+		location of the output data relative to =DEXoutputFlag=. The count starts from 1.
+		The default is 1 which results in extracting the first value in the =resultFile=
+		if =DEXoutputFlag= is empty. If =DEXoutputFlag= is given, it would results in 
+		extracting the first number following the first appearance of =DEXoutputFlag= in =resultFile=.
+   - *imageName* : This field specifies the image name format.
+	 A number can be specified by using Python formatting (using new style, see [[https://pyformat.info/#number][see https://pyformat.info/#number]]). For example,
+     #+BEGIN_EXAMPLE
+     "imageName": "domainImage_{:03d}.tif"
+     #+END_EXAMPLE
+     and running =extract.py= by providing the =caseNumber= of "1" and outputDirectory (=<outputDir>=) of
+     =example_outputs/=
+     results in
+     #+BEGIN_EXAMPLE
+     example_outputs/domainImage_001.tif
+     #+END_EXAMPLE
+     The default image name is =plot_<kpiName>.png= for line plots and =out_<kpiName>.png= for all other image types,
+     where =<kpiName>= is the title of the metrics entery in the kpi.json file.
+
+
+
+	 
+	

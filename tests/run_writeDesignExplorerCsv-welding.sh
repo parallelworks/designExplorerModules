@@ -22,7 +22,7 @@ fi
 # echo python      ../mexdex/writeDesignExplorerCsv.py \
 # 	--casesList_paramValueDelimiter "=" \
 # 	--imagesDirectory $pngOutDirRoot{:d} \
-# 	--MECsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
+# 	--MEXCsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
 # 	--excludeParams Width1,Width2,EllipseW,EllipseH,Temp0,weld_x0,weld_y0,weld_z0,weld_vx,weld_vy,weld_vz,weld_a,weld_b,weld_c,weld_Q,sim_totalTime,sim_dt,highResWidth,meshScale,highResMeshScale \
 # 	$caseslistFile $metrics_json $basedir $outcsv
 
@@ -31,7 +31,7 @@ basedir="."
 python      ../mexdex/writeDesignExplorerCsv.py \
 	--casesList_paramValueDelimiter "=" \
 	--imagesDirectory $pngOutDirRoot{:d} \
-	--MECsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
+	--MEXCsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
 	--excludeParams Width1,Width2,EllipseW,EllipseH,Temp0,weld_x0,weld_y0,weld_z0,weld_vx,weld_vy,weld_vz,weld_a,weld_b,weld_c,weld_Q,sim_totalTime,sim_dt,highResWidth,meshScale,highResMeshScale \
 	$caseslistFile $metrics_json $basedir $outcsv
 

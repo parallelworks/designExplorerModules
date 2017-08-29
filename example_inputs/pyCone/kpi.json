@@ -3,14 +3,14 @@
     "IsParaviewMetric": "no",
     "resultFile": "../example_inputs/pyCone/results/case_{:d}/volAndLat.txt",
     "delimiter": " ",
-    "DEoutputFlag": "",
+    "DEXoutputFlag": "",
     "locationInFile": "1"
   },
   "volume": {
     "IsParaviewMetric": "no",
     "resultFile": "../example_inputs/pyCone/results/case_{:d}/volAndLat.txt",
     "delimiter": " ",
-    "DEoutputFlag": "",
+    "DEXoutputFlag": "",
     "locationInFile": "2"
   },
   "coneShape": {
