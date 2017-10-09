@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-
+# image path is specified as an input to the writeDesignExplorerCsv.py file:
 python      ../mexdex/writeDesignExplorerCsv.py \
 	--imagesDirectory "../example_inputs/pyCone/results/case_{:d}" \
     --casesList_paramValueDelimiter  ":"   \

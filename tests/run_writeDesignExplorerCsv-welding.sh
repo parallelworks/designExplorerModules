@@ -5,7 +5,7 @@ outhtml=../example_outputs/welding/DE.html
 rpath=example_outputs/welding										
 caseslistFile=../example_inputs/welding/outputs/cases.list 				
 metrics_json=../example_inputs/welding/inputs/beadOnPlateKPI_short.json  
-pngOutDirRoot=../example_inputs/welding/outputs/png/ 						
+pngOutDirRoot=""  #../example_inputs/welding/outputs/png/ 						
 caseDirRoot=../example_inputs/welding/outputs/case						
 
 colorby="sliceNT_ave"
@@ -30,7 +30,6 @@ basedir="."
 
 python      ../mexdex/writeDesignExplorerCsv.py \
 	--casesList_paramValueDelimiter "=" \
-	--imagesDirectory $pngOutDirRoot{:d} \
 	--MEXCsvPathTemplate  $caseDirRoot{:d}/metrics.csv \
 	--excludeParams Width1,Width2,EllipseW,EllipseH,Temp0,weld_x0,weld_y0,weld_z0,weld_vx,weld_vy,weld_vz,weld_a,weld_b,weld_c,weld_Q,sim_totalTime,sim_dt,highResWidth,meshScale,highResMeshScale \
 	$caseslistFile $metrics_json $basedir $outcsv
