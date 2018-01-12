@@ -35,3 +35,8 @@ The below parameters can be specified for each of the desired metrics:
     ```
 
     The default image name is `plot_<kpiName>.png` for line plots and `out_<kpiName>.png` for all other image types, where `<kpiName>` is the title of the metrics entery in the kpi.json file.
+
+License
+-------
+
+This project is licensed under the MIT License - see the \[LICENSE.md\](LICENSE.md) file for details.
