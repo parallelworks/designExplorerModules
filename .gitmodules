@@ -1,3 +1,4 @@
 [submodule "mexdex"]
 	path = mexdex
 	url = https://github.com/parallelworks/mexdex.git
+	master = master
