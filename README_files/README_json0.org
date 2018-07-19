@@ -12,25 +12,28 @@ and outputting data in the specific format required by DEX.
 
 
 ** Json file Syntax
+   
    A json file is used for specifying the outputs (parameters/images/animations)
-   in DEX. 
+   in DEX. The json parameter fields are described below. For examples, see 
+   [[file:example_inputs/welding/inputs/beadOnPlateKPI_short.json][example_inputs/welding/inputs/beadOnPlateKPI_short.json]] and 
+   [[file:example_inputs/pyCone/kpi.json][example_inputs/pyCone/kpi.json]].
 
    The below parameters can be specified for each of the desired metrics:
    - *IsParaviewMetric*: This parameter specifies if the output is extracted 
 		using MEX. The default value is "True". The outputs fall into two major categories:
 	 1. ParaView output (PVO): These parameters are 
-		extracted using the Metrics Extraction (*MEX*) tool via Paraview. The syntax is explained in detail in
+		extracted using the Metrics Extraction (*MEX*) tool via ParaView. The syntax is explained in detail in
 		https://github.com/parallelworks/MetricExtraction/blob/master/README.md#metric-extraction.
 		the additional parameters required for DEX are listed below. The =isparaviewmetric=
 		field is set to =true= (default) for these parameters.
-	 2. Generic output (GO): These metrics are provided in files other the those generated 
-		by the ME tool.  The =isparaviewmetric= field is set to =false= for these parameters.
+	 2. Generic output (GO): These metrics are provided in files other than those generated 
+		by the MEX tool.  The =isparaviewmetric= field is set to =false= for these parameters.
    - *resultFile* :: Only required for GO parameters. This field specifies the template for the 
 		address of the data file where the data needs to be extracted. It is assumed that 
 		the data for each case is written in a separate file, and 
 		the case number can be specified by using python formatting (using new style, 
 		see [[https://pyformat.info/#number][see https://pyformat.info/#number]]). For examples see 
-		=example_inputs/welding/inputs/beadOnPlateKPI_short.json=. Also, see =imageName= below.
+		[[file:example_inputs/welding/inputs/beadOnPlateKPI_short.json][example_inputs/welding/inputs/beadOnPlateKPI_short.json]]. Also, see =imageName= below.
 		for more details.
    - *delimiter* : Only required for GO parameters. This field specifies the 
 		delimiter for reading/extracting output parameters from =resultFile=. 
@@ -40,7 +43,7 @@ and outputting data in the specific format required by DEX.
 	 + "none" : the output will be ignored
 	 + "ave", "min", "max", "sd" or "all":
 	   - For PVOs (i.e., if =IsParaviewMetric= is set to =True= or if not provided)
-		 specifies the statistics to be read from the MEX csv files. Multuiple statistics can be specified
+		 specifies the statistics to be read from the MEX csv files. Multiple statistics can be specified
 		 separated with ",". If set to "all", all statistics will be extract included in DEX csv file. The 
 		 default value for PVOs is =all=
 	   - For GOs, =DEXoutputFlag= specifies the flag for reading/extracting output parameters from =resultFile=.
@@ -54,18 +57,18 @@ and outputting data in the specific format required by DEX.
 		if =DEXoutputFlag= is empty. If =DEXoutputFlag= is given, it would results in 
 		extracting the first number following the first appearance of =DEXoutputFlag= in =resultFile=.
    - *imageName* : This field specifies the image name format.
-	 A number can be specified by using Python formatting (using new style, see [[https://pyformat.info/#number][see https://pyformat.info/#number]]). For example,
+	 A number can be specified by using Python formatting (using new style, see [[https://pyformat.info/#number][see https://pyformat.info/#number]]). For example, setting 
      #+BEGIN_EXAMPLE
-     "imageName": "domainImage_{:03d}.tif"
+     "imageName": "results/figs/domainImage_{:03d}.tif"
      #+END_EXAMPLE
-     and running =extract.py= by providing the =caseNumber= of "1" and outputDirectory (=<outputDir>=) of
-     =example_outputs/=
-     results in
+     would add the path of the images in following format to the =DE.csv= file:
      #+BEGIN_EXAMPLE
-     example_outputs/domainImage_001.tif
+	 results/figs/domainImage_000.tif
+	 results/figs/domainImage_001.tif
+	 ...
      #+END_EXAMPLE
      The default image name is =plot_<kpiName>.png= for line plots and =out_<kpiName>.png= for all other image types,
-     where =<kpiName>= is the title of the metrics entery in the kpi.json file.
+     where =<kpiName>= is the title of the metrics entry in the =kpi.json= file.
 
 
 
